@@ -1,56 +1,56 @@
 /* Header */
 
 .header {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-  }
-  
-  h1 {
-    padding-left: 80px;
-  }
-  
-  .header .inner-logo img {
-    max-height: 50px;
-    max-width: 100%;
-  }
-  
-  .header .inner-menu > ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-  }
-  
-  .header .inner-menu > ul > li {
-    margin-left: 20px;
-  }
-  /* End header */
-  
-  /* Footer */
-  .footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-  }
-  /* End footer */
-  
-  /* box-head */
-  .box-head {
-    margin-bottom: 30px;
-  }
-  
-  .box-head .inner-title {
-    margin-bottom: 0;
-    font-size: 28px;
-    font-weight: 600;
-    color: green;
-  }
-  
-  /* End box-head */
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+h1 {
+  padding-left: 80px;
+}
+
+.header .inner-logo img {
+  max-height: 50px;
+  max-width: 100%;
+}
+
+.header .inner-menu > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.header .inner-menu > ul > li {
+  margin-left: 20px;
+}
+/* End header */
+
+/* Footer */
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+/* End footer */
+
+/* box-head */
+.box-head {
+  margin-bottom: 30px;
+}
+
+.box-head .inner-title {
+  margin-bottom: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: green;
+}
+
+/* End box-head */
 
 /* Tour Detail Section */
 .tour-detail {
@@ -176,5 +176,41 @@
   max-width: 100%;
   height: auto;
 }
+/* End tour-detail */
 
+/* Alert add cart success */
 
+[alert-add-cart-success] {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  z-index: 9999;
+}
+
+[alert-add-cart-success].alert-hidden {
+  animation-name: alert-hidden;
+  animation-fill-mode: both;
+}
+@keyframes alert-hidden {
+  from {
+    right: 15px;
+  }
+  to {
+    right: -100%;
+    display: none;
+  }
+}
+
+[alert-add-cart-success] [close-alert] {
+  background: #ffffffc4;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* End Alert add cart success */
