@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 import Tour from "../../models/tour.model";
 import sequelize from "../../config/database";
-import { QueryTypes } from "sequelize";
+import { json, QueryTypes } from "sequelize";
 
 //[GET] /tours/:slugCategory
 export const index = async (req: Request, res: Response) => {
@@ -59,12 +59,27 @@ export const index = async (req: Request, res: Response) => {
 
 //[GET] /tours/detail/:slugTour
 export const detail = async (req: Request, res: Response) => {
+  const slugTour = req.params.slugTour;
 
-  const slugTour = req.params.slugTour
+  const tourDetail = await Tour.findOne({
+    where: {
+      slug: slugTour,
+      deleted: false,
+      status: "active",
+    },
+    raw: true,
+  });
 
-  console.log(slugTour)
+  if (tourDetail as any) {
+    (tourDetail as any).images = JSON.parse((tourDetail as any).images);
+  }
+  (tourDetail as any).price_special =
+    (tourDetail as any).price * (1 - (tourDetail as any).discount / 100);
+
+  console.log(tourDetail);
 
   res.render("client/pages/tours/detail.pug", {
     pageTitle: "Chi tiết tour",
+    tourDetail: tourDetail,
   });
 };
