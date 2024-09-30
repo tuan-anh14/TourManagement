@@ -51,3 +51,122 @@
   }
   
   /* End box-head */
+
+/* Tour Detail Section */
+.tour-detail {
+  padding: 20px 0;
+}
+
+.tour-detail .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tour-detail .inner-images {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.tour-detail .inner-image img {
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.tour-detail .inner-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.tour-detail .inner-barcode,
+.tour-detail .inner-time-start,
+.tour-detail .inner-stock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.tour-detail .inner-barcode i,
+.tour-detail .inner-time-start i,
+.tour-detail .inner-stock i {
+  margin-right: 8px;
+  color: #c12026;
+}
+
+.tour-detail .inner-price-special {
+  font-size: 22px;
+  font-weight: bold;
+  color: #c12026;
+}
+
+.tour-detail .inner-price {
+  font-size: 18px;
+  text-decoration: line-through;
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.tour-detail .inner-percent {
+  font-size: 16px;
+  color: #28a745;
+  margin-bottom: 20px;
+}
+
+.tour-detail form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tour-detail form input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tour-detail form button {
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tour-detail form button:hover {
+  background-color: #218838;
+}
+
+/* Information Section */
+.tour-detail .inner-information {
+  margin-top: 30px;
+  border: 1px solid #b5b5b5;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.tour-detail .inner-information .inner-label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #c12026;
+  border-bottom: 1px solid #b5b5b5;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.tour-detail .inner-information .inner-text {
+  font-size: 14px;
+  color: #333;
+  white-space: pre-line;
+}
+
+.tour-detail .inner-information .inner-text img {
+  max-width: 100%;
+  height: auto;
+}
+
