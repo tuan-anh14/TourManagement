@@ -49,8 +49,6 @@ export const index = async (req: Request, res: Response) => {
     (item as any).price_special = parseFloat((item as any).price_special);
   });
 
-  console.log(tours);
-
   res.render("client/pages/tours/index.pug", {
     pageTitle: "Danh sách tour",
     tours: tours,
@@ -75,8 +73,6 @@ export const detail = async (req: Request, res: Response) => {
   }
   (tourDetail as any).price_special =
     (tourDetail as any).price * (1 - (tourDetail as any).discount / 100);
-
-  console.log(tourDetail);
 
   res.render("client/pages/tours/detail.pug", {
     pageTitle: "Chi tiết tour",

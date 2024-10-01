@@ -13,7 +13,6 @@ export const index = async (req: Request, res: Response) => {
     raw: true,
   });
 
-  console.log(categories);
   res.render("client/pages/categories/index.pug", {
     pageTitle: "Danh mục tour",
     categories: categories,
