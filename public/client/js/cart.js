@@ -80,26 +80,64 @@ const deleteItemInCart = () => {
 
 // cập nhật sản phẩm trong giỏ hàng
 const updateQuantityInCart = () => {
-    const listInputUpdate = document.querySelectorAll("[list-tour] input[item-id]");
-    listInputUpdate.forEach((input) => {
-        input.addEventListener("change", () => {
-        const tourId = input.getAttribute("item-id");
-        const quantity = parseInt(input.value);
-  
-        const cart = JSON.parse(localStorage.getItem("cart"));
+  const listInputUpdate = document.querySelectorAll(
+    "[list-tour] input[item-id]"
+  );
+  listInputUpdate.forEach((input) => {
+    input.addEventListener("change", () => {
+      const tourId = input.getAttribute("item-id");
+      const quantity = parseInt(input.value);
 
-        const tourUpdate = cart.find(item => item.tourId == tourId);
-        tourUpdate.quantity = quantity;
-  
-        localStorage.setItem("cart", JSON.stringify(cart));
-  
-        drawListTour();
-      });
+      const cart = JSON.parse(localStorage.getItem("cart"));
+
+      const tourUpdate = cart.find((item) => item.tourId == tourId);
+      tourUpdate.quantity = quantity;
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      drawListTour();
     });
-  };
-  
-  // End cập nhật sản phẩm trong giỏ hàng
+  });
+};
+
+// End cập nhật sản phẩm trong giỏ hàng
 
 // Lấy ra data và in ra giao diện
 drawListTour();
 // End lấy ra data và in ra giao diện
+
+// Đặt tour
+const formOrder = document.querySelector("[form-order]");
+if (formOrder) {
+  formOrder.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const fullName = event.target.elements.fullName.value;
+    const phone = event.target.elements.phone.value;
+    const note = event.target.elements.note.value;
+
+    const cart = JSON.parse(localStorage.getItem("cart"));
+
+    const data = {
+      info: {
+        fullName: fullName,
+        phone: phone,
+        note: note,
+      },
+      cart: cart,
+    };
+
+    fetch("/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  });
+}
+// End đặt tour

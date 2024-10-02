@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import Tour from "../../models/tour.model";
-import { Json } from "sequelize/types/utils";
 
 //[GET] /cart
 export const index = async (req: Request, res: Response) => {
