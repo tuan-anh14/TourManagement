@@ -64,3 +64,10 @@ export const order = async (req: Request, res: Response) => {
     orderCode: code,
   });
 };
+
+//[POST] /success
+export const success = async (req: Request, res: Response) => {
+  res.render("client/pages/order/success.pug", {
+    pageTitle: "Đặt hàng thành công !"
+  })
+};
