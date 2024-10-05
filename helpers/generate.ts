@@ -4,3 +4,9 @@ export const generateOrderCode = (number: number): string => {
 
   return code;
 };
+
+// Generate Tour Code
+export const generateTourCode = (number: number): string => {
+  const code = `TOUR${String(number).padStart(6, "0")}`;
+  return code;
+};
