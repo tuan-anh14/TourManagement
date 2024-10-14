@@ -1,11 +1,11 @@
 import { Router } from "express";
-import multer from "multer";
+// import multer from "multer";
 const router: Router = Router();
 
 import * as controller from "../../controllers/admin/tour.controller";
-import * as uploadCloud from "../../middlewares/admin/uploadCloudinary.middleware"
+// import * as uploadCloud from "../../middlewares/admin/uploadCloudinary.middleware"
 
-const upload = multer();
+// const upload = multer();
 
 router.get("/", controller.index);
 
