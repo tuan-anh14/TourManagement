@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database";
+import slugify from "slugify";
 
 const Tour = sequelize.define(
   "Tour",
@@ -46,7 +47,7 @@ const Tour = sequelize.define(
     },
     slug: {
       type: DataTypes.STRING(255),
-      allowNull: false,
+      allowNull: true,
     },
     deleted: {
       type: DataTypes.BOOLEAN,
@@ -61,5 +62,12 @@ const Tour = sequelize.define(
     timestamps: true,
   }
 );
+
+Tour.beforeCreate((tour) => {
+  (tour as any)["slug"] = slugify(`${(tour as any)["title"]}-${Date.now()}`, {
+    lower: true, // convert to lower case, defaults to `false`
+    strict: true, // strip special characters except replacement, defaults to `false`
+  });
+});
 
 export default Tour;
